@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: api
+  name: api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: api
+    spec:
+      containers:
+      - image: docker.io/dineshverma877/3tier:api
+        name: 3tier
+        env: 
+        - name: DB_HOST
+          value: db
+        - name: DB_USER
+          value: user
+        - name: DB_PASS
+          value: pass
+status: {}
