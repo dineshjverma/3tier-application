@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: web
+  name: web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: web
+    spec:
+      containers:
+      - image: docker.io/dineshverma877/3tier:web
+        name: 3tier
+        env:
+        - name: QOD_API_URL
+          value: http://api:8080
+status: {}
